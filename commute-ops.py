@@ -87,9 +87,15 @@ def check_flight(origin, dest, date, time_window=None):
         return 9999, "Error", ""
 
 def log_data(row):
+    # Calculate how far in advance we are scanning
+    # (dept_date is already a date object in the row passed from the main loop)
+    days_out = (row["dept_date"] - datetime.date.today()).days
+    row["days_in_advance"] = days_out
+
     file_exists = os.path.isfile(CSV_FILE)
     with open(CSV_FILE, "a", newline="") as f:
-        fields = ["scanned_at", "anchor_week", "itin_type", "dept_date", "return_date", "airport", "total_cost"]
+        # Add 'days_in_advance' to headers
+        fields = ["scanned_at", "anchor_week", "itin_type", "dept_date", "return_date", "airport", "total_cost", "days_in_advance"]
         writer = csv.DictWriter(f, fieldnames=fields)
         if not file_exists: writer.writeheader()
         writer.writerow(row)
