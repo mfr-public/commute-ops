@@ -19,9 +19,9 @@ SERPAPI_KEY = "USER_SERPAPI_KEY" # can get for free (100 searches a month)
 PUSHOVER_USER_KEY = "PUSHOVER_USER_KEY" # free trail or once off $5
 PUSHOVER_API_TOKEN = "USER_PUSHOVER_API_TOKEN"
 
-EMAIL_SENDER = "user_email@gmail.com"
+EMAIL_SENDER = "user_email@email.com"
 EMAIL_APP_PASSWORD = "user_app_password" # not your email log in password
-EMAIL_RECEIVER = "user_email@gmail.com"
+EMAIL_RECEIVER = "user_emailegmail.com"
 
 WORK_AIRPORT = "SYD"
 MONTHS_TO_SCAN = 3  # Safely back up to 3 months
